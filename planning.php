@@ -63,7 +63,7 @@ function build_calendar($month, $year){
         if($date<date('Y-m-d')){
             $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
         }else{
-            $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book'.php?date=".$date." class='btn btn-success btn-xs'>Book</a>";
+            $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
         }
      
         // if($dateToday==$date){
