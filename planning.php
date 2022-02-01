@@ -67,11 +67,11 @@ function build_calendar($month, $year){
          }
             // sinon date ojd == colors jaune et book 
          elseif(date('Y-m-d')==$date){
-             $calendar.= "<td class='today' rel='$date'><h4>$currentDay</h4>$currentDay</h4><a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             $calendar.= "<td class='today' rel='$date'><h4>$currentDay</h4>$currentDay</h4><a href='reservation-form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
              
             //  sinon date>ojd = book
          }else{
-             $calendar.= "<td rel='$date'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             $calendar.= "<td rel='$date'><h4>$currentDay</h4> <a href='reservation-form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
              
      }
     
