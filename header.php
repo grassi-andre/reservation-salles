@@ -6,23 +6,25 @@
 <ul>
 
     <li><a href="index.php">Accueil</a></li>
+    <li><a href="planning.php">Calendrier</a></li>
 
-                <?php if (!isset($_SESSION['id'])) {?>
+                <?php if(!isset($_SESSION['id'])) {?>
 
-                <li><a href="connexion.php">Connexion</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="planning.php">Calendrier</a></li>
-                
-
-                <?php } ?>
-
+                    <li><a href="reservation.php">Reservation</a></li>
+                    <li><a href="connexion.php">Connexion</a></li>
+                    <li><a href="inscription.php">Inscription</a></li>
                 
                 
+                
 
-                <?php if(isset($_SESSION['id'])){?>
+                <?php } 
+
+                
+                
+
+                 else{?>
                 
                     <li><a href="profil.php">Modifier Mon profil</a></li>
-                    <li><a href="planning.php">Calendrier</a></li>
                     <li><a href="deconnexion.php">Deconnexion</a></li>
                     
                 <?php }?>

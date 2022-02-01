@@ -19,12 +19,13 @@ function build_calendar($month, $year){
     $calendar = "<table class='table table-bordered'>";
     $calendar.= "<center><h2>$monthName $year</h2>";
 
-    $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0,0,0, $month-1,1,$year))."&year=".date('Y', mktime(0,0,0, $month-1,1,$year))."'>Last month</a>";
+    $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0,0,0, $month-1,1,$year))."&year=".date('Y', mktime(0,0,0, $month-1,1,$year))."'>Mois précédent</a>";
     //       var_dump($calendrier);
-    $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>This month</a>";
+    $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Ce mois</a>";
     //       var_dump($calendrier);
-    $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0,0,0, $month+1,1,$year))."&year=".date('Y', mktime(0,0,0, $month+1,1,$year))."'>Next month</a></center></br>";
+    $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0,0,0, $month+1,1,$year))."&year=".date('Y', mktime(0,0,0, $month+1,1,$year))."'>Mois prochain</a></center></br>";
     $calendar.="<tr>";
+    
 
     
 
@@ -67,11 +68,12 @@ function build_calendar($month, $year){
          }
             // sinon date ojd == colors jaune et book 
          elseif(date('Y-m-d')==$date){
-             $calendar.= "<td class='today' rel='$date'><h4>$currentDay</h4>$currentDay</h4><a href='reservation-form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             $calendar.= "<td class='today' rel='$date'><h4>$currentDay</h4><a href='reservation-form.php?date=".$date."'class='btn btn-success btn-xs'>Book</a>";
              
             //  sinon date>ojd = book
          }else{
-             $calendar.= "<td rel='$date'><h4>$currentDay</h4> <a href='reservation-form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             $calendar.= "<td rel='$date'><h4>$currentDay</h4> <a href='reservation-form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a> 
+             <a href='reservation.php?date=".$date."' class='btn btn-success btn-xs'>Infos</a>";
              
      }
     
@@ -134,7 +136,7 @@ include('header.php');
                     $dateComponents = getdate();
 
 
-
+                        
                     if(isset($_GET["month"])){
                         $month = $_GET["month"];
                         $year = $_GET["year"];

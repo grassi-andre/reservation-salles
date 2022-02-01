@@ -50,12 +50,12 @@ include('header.php');
                     </div>
                     <div class="form-group">
                         <label for="">Debut</label>
-                        <input type="text" class="form-control" name="Debut">
+                        <input type="time" class="form-control" name="Debut">
 
                     </div>
                     <div class="form-group">
                         <label for="">Fin</label>
-                        <input type="email" class="form-control" name="Fin">
+                        <input type="time" class="form-control" name="Fin">
 
                     </div>
                     <button class="btn btn-primary"type="submit" name="submit">Envoyer</button>

@@ -43,7 +43,7 @@ catch(PDOException $e){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($row['num'] > 0){
-          $msg = "Login deja pris<br/>";
+          $msg = "<br/>";
     }
     //LOGIN DEJA PRIS
 
@@ -65,7 +65,7 @@ catch(PDOException $e){
             //die();
         //}
         if($stmt->execute()){
-            $msg = "Bienvenue<br/>";
+            $msg = "Bienvenue '$login' <br/>";
         }
         else{
             $error = "Erreur: "; $e->getMessage();
