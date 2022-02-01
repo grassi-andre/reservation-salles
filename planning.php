@@ -43,7 +43,7 @@ function build_calendar($month, $year){
 
     $currentDay = 1;
 
-    $month = str_pad($month,2,"O",STR_PAD_LEFT);
+    $month = str_pad($month,2,0,STR_PAD_LEFT);
     
     while($currentDay <= $numberDays)
     {
@@ -53,24 +53,27 @@ function build_calendar($month, $year){
             $calendar.="</tr><tr>";
         }
     
-        $currentDayRel = str_pad($currentDay,2,"0",STR_PAD_LEFT);
-        $date = "year-$month-$currentDayRel";
+        $currentDayRel = str_pad($currentDay,2,0,STR_PAD_LEFT);
+        $date = "$year-$month-$currentDayRel";
 
         $dayname = strtolower(date('i', strtotime($date)));
         $evenNum = 0;
         $today = $date ==date('Y-m-d')? "today":"";
 
-        if($date<date('Y-m-d')){
-            $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
-        }else{
-            $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
-        }
-     
-        // if($dateToday==$date){
-            // $calendar.= "<td class='today'><h4>$currentDay</h4>";
-        // }else{
-            // $calendar.= "<td><h4>$currentDay</h4>";
-    // }
+        // si date < ojd alors n/a 
+          if($date<date('Y-m-d')){
+             $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
+        
+         }
+            // sinon date ojd == colors jaune et book 
+         elseif(date('Y-m-d')==$date){
+             $calendar.= "<td class='today' rel='$date'><h4>$currentDay</h4>$currentDay</h4><a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             $calendar.= "<td rel='$date'><h4>$currentDay</h4> <a href='reservation.php?date=".$date."' class='btn btn-success btn-xs'>Info</a>";
+            //  sinon date>ojd = book
+         }else{
+             $calendar.= "<td rel='$date'><h4>$currentDay</h4> <a href='reservation-form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             
+     }
     
         $calendar.="</td>";
     
@@ -119,6 +122,9 @@ function build_calendar($month, $year){
     </style>
 </head>
 <body>
+<?php
+include('header.php');
+?> 
     <div class="container">
         <div class="row">
             <div class="col-md-12">

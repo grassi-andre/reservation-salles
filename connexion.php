@@ -86,13 +86,13 @@ include ('header.php') ;
     <h1>Connexion</h1>
     <br />
          <br />
-        <input type="text" name="login" value="login" require>
+        <input type="text" name="login" placeholder="login" require>
         <br>
-        <input type="password" name='password' value="password" require>
+        <input type="password" name='password' placeholder="password" require>
         <br />
    
 
-        <input type="submit"   name ='submit'value="submit">
+        <input type="submit"   name ='submit'placeholder="submit">
 
     </form>
             </div>

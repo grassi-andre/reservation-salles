@@ -27,7 +27,7 @@ catch(PDOException $e){
     @$password = htmlspecialchars(trim($password));
 
     if (isset($_POST['envoi'])){
-        if(!empty($_POST['login']) AND !empty($_POST['pass']) AND !empty($_POST['confirm'])){
+        if(isset($_POST['login']) AND isset($_POST['pass']) AND iseet($_POST['confirm'])){
             @$login = htmlspecialchars($_POST['login']);//encodage 
             @$password = htmlspecialchars($_POST['password']);
             
@@ -43,7 +43,7 @@ catch(PDOException $e){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($row['num'] > 0){
-          echo "Login deja pris<br/>";
+          $msg = "Login deja pris<br/>";
     }
     //LOGIN DEJA PRIS
 
@@ -51,7 +51,7 @@ catch(PDOException $e){
 
     }
     elseif($_POST['password'] !=$_POST['confirm']){
-        die("Mot de passe incorrect<br/>");
+        $msg = "Mot de passe incorrect<br/>";
     }//Si les mdp ne sont pas idendique (die)"mot de pass incorrect et ne crée pas d'utilisateurs dans la bdd
     else{
 
@@ -65,7 +65,7 @@ catch(PDOException $e){
             //die();
         //}
         if($stmt->execute()){
-            echo "Bienvenue<br/>";
+            $msg = "Bienvenue<br/>";
         }
         else{
             $error = "Erreur: "; $e->getMessage();
@@ -88,17 +88,16 @@ catch(PDOException $e){
 include('header.php')
 ?>          
 
-
-
-
-
-
-
 <link rel="stylesheet" href="style.css">
 <div class="inscription">
 <form name="inscription" method="POST" action="" align="center">
+ 
 <fieldset>
+    
     <legend><h2>Inscription</h2></legend>
+    <?php if(isset($msg)){
+        echo $msg;
+    } ?>
     Login<br>
     <input type="text" name="login" value="" autocomplete="off" required><br>
     Mot de passe<br>
@@ -108,6 +107,8 @@ include('header.php')
     <br/><br/>
     <input type="submit" name="envoi">
 
+  
+    
 </fieldset>
 </form>
 
