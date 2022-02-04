@@ -10,7 +10,7 @@
 
                 <?php if(!isset($_SESSION['id'])) {?>
 
-                    <li><a href="reservation.php">Reservation</a></li>
+                    
                     <li><a href="connexion.php">Connexion</a></li>
                     <li><a href="inscription.php">Inscription</a></li>
                 

@@ -82,8 +82,13 @@ include ('header.php') ;
 
         <div class="container2">
     <form class="formulaire2" action="#" method="post">
+    <?php if(!isset($_SESSION['id'])) { ?>
+       
+        <h1>Connexion</h1> 
 
-    <h1>Connexion</h1>
+       <?php } ?>
+    
+        
     <br />
          <br />
         <input type="text" name="login" placeholder="login" require>
@@ -103,7 +108,7 @@ include ('header.php') ;
             <h1><?php 
 
                 if(isset($_SESSION['id'])){
-                    echo 'Connexion reussi';
+                    echo 'Connexion reussi' .' '.$login ;
                 }
                 else
                 if(!isset($_SESSION['id'])){

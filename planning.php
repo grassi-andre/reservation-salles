@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function build_calendar($month, $year){
 
     $daysOfWeek = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
@@ -7,14 +9,13 @@ function build_calendar($month, $year){
     $firstdayofmonth = mktime(0,0,0,$month,1,$year);
 
     $numberDays = date('t',$firstdayofmonth);
-
+    
     $dateComponents = getdate($firstdayofmonth);
 
     $monthName = $dateComponents['month'];
 
-    $dayOfWeek = $dateComponents['wday'];
 
-    $dateToday = date('Y-m-d');
+    $dayOfWeek = 1;
 
     $calendar = "<table class='table table-bordered'>";
     $calendar.= "<center><h2>$monthName $year</h2>";
@@ -28,7 +29,8 @@ function build_calendar($month, $year){
     
 
     
-
+    // header du tableau jour en toute lettre
+    
     foreach($daysOfWeek as $day){
         $calendar.="<th class='header'>$day</th>";
     }
@@ -43,6 +45,7 @@ function build_calendar($month, $year){
 
 
     $currentDay = 1;
+    
 
     $month = str_pad($month,2,0,STR_PAD_LEFT);
     
@@ -66,11 +69,14 @@ function build_calendar($month, $year){
              $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
         
          }
-            // sinon date ojd == colors jaune et book 
+         elseif($dayOfWeek == 6 || $dayOfWeek == 5){
+            $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
+         }
+            // sinon date ojd == colors jaune book et info
          elseif(date('Y-m-d')==$date){
-             $calendar.= "<td class='today' rel='$date'><h4>$currentDay</h4><a href='reservation-form.php?date=".$date."'class='btn btn-success btn-xs'>Book</a>";
+             $calendar.= "<td class='today' rel='$date'><h4>$currentDay</h4><a href='reservation-form.php?date=".$date."'class='btn btn-success btn-xs'>Book</a><a href='reservation.php?date=" .$date."' class='btn btn-success btn-xs'>Infos</a>";
              
-            //  sinon date>ojd = book
+            //  sinon date>ojd = book et info
          }else{
              $calendar.= "<td rel='$date'><h4>$currentDay</h4> <a href='reservation-form.php?date=".$date."' class='btn btn-success btn-xs'>Book</a> 
              <a href='reservation.php?date=".$date."' class='btn btn-success btn-xs'>Infos</a>";
@@ -125,7 +131,7 @@ function build_calendar($month, $year){
 </head>
 <body>
 <?php
-include('header.php');
+include('header.php')
 ?> 
     <div class="container">
         <div class="row">

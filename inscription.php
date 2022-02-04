@@ -1,21 +1,22 @@
 <?php
 //id sql
 session_start();
-$serveur = "localhost";
-$dbname = "reservationsalles";
-$user = "root";
-$pass = "root";
+require 'bdd.php';
+// $serveur = "localhost";
+// $dbname = "reservationsalles";
+// $user = "root";
+// $pass = "root";
 
 
-try{ 
-    //Connexion BDD 
-    $log = new PDO("mysql:host=$serveur;dbname=$dbname",$user,$pass);
-    $log->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-// Erreur
-catch(PDOException $e){
-    echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
-}
+// try{ 
+//     //Connexion BDD 
+//     $log = new PDO("mysql:host=$serveur;dbname=$dbname",$user,$pass);
+//     $log->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// }
+// // Erreur
+// catch(PDOException $e){
+//     echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
+// }
 
 
     @$login = $_POST['login'];
@@ -27,7 +28,7 @@ catch(PDOException $e){
     @$password = htmlspecialchars(trim($password));
 
     if (isset($_POST['envoi'])){
-        if(isset($_POST['login']) AND isset($_POST['pass']) AND iseet($_POST['confirm'])){
+        if(isset($_POST['login']) AND isset($_POST['pass']) AND isset($_POST['confirm'])){
             @$login = htmlspecialchars($_POST['login']);//encodage 
             @$password = htmlspecialchars($_POST['password']);
             
@@ -36,7 +37,7 @@ catch(PDOException $e){
 
     // Verifie si le login est disponnible dans la BDD sinon changer de pseudo
     $sql = "SELECT COUNT(login) AS num FROM utilisateurs WHERE login = :login";
-    $stmt = $log->prepare($sql);
+    $stmt = $bdd->prepare($sql);
     $stmt->bindValue(':login',$login);
     $stmt->execute();
 
@@ -57,7 +58,7 @@ catch(PDOException $e){
 
         $sql1 = "INSERT INTO utilisateurs(login,password)
         VALUES (:login,:password)";
-        $stmt = $log->prepare($sql1);
+        $stmt = $bdd->prepare($sql1);
         $stmt->bindParam(':login' ,$login);
         $stmt->bindParam(':password' ,$password);
   /*binParam = Identifiant. Pour une requête préparée utilisant des marqueurs nommés, ce sera le nom du paramètre sous la forme :name. Pour une requête préparée utilisant les marqueurs interrogatifs, ce sera la position indexé +1 du paramètre.*/
@@ -81,6 +82,7 @@ catch(PDOException $e){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Inscription</title>
 </head>
 <body>
