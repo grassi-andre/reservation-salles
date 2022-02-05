@@ -1,30 +1,30 @@
 <?php
 
-
-
-
-//id sql
 session_start();
 include('header.php');
+include('bdd.php');
 
-$serveur = "localhost";
-$dbname = "reservationsalles";
-$user = "root";
-$pass = "root";
+$result= date($_GET['date']);
 
-
-try{ 
-    //Connexion BDD 
-    $log = new PDO("mysql:host=$serveur;dbname=$dbname",$user,$pass);
-    $log->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$insert = $bdd->prepare("SELECT debut FROM reservations");
+$insert->execute();
+$debut  = $insert->fetchAll();
+foreach( $debut as $d){
+    if(date("Y-m-d",strtotime($d["debut"])) == $_GET['date']){
+        
+        
+        
+    }
+    
 }
-// Erreur
-catch(PDOException $e){
-    echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
-}
 
-$insert = $log->query("SELECT * FROM reservations INNER JOIN utilisateurs ON reservations.id_utilisateur = utilisateurs.id");
-$comment  = $insert->fetch();
+
+
+
+
+
+
+
 ?>
 
 
@@ -38,15 +38,10 @@ $comment  = $insert->fetch();
     <title>Reservation</title>
 </head>
 <body>
-    <?php
-    ?>
+
+
+        
     
-       <p>Titre de resérvation : <?= $comment['titre'] ;?>  </p>
-       <p>Description : <?= $comment['description'] ;?>  </p>
-       <p>Début : <?= $comment['debut'] ;?>  </p>
-       <p>Fin : <?= $comment['fin'] ;?>  </p>
-
-
         
 
 </body>

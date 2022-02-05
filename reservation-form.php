@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include('header.php');
 
 if(isset($_GET['date'])){
     $date = $_GET['date'];
@@ -40,13 +41,7 @@ if(isset($_POST['submit'])){
                     $result = $query->rowCount();
                         if($result == 0){
                             
-                            // $req->prepare("INSERT INTO reservations (titre, description, debut, fin, id_utilisateur) VALUES (:titre, :description, :debut, :fin, :id_utilisateur)");         
-                            // $req->bindValue(':titre', $titre);         
-                            // $req->bindValue(':description', $description);
-                            // $req->bindValue(':debut', $debut);   
-                            // $req->bindValue(':fin', $fin);    
-                            // $req->bindValue(':id_utilisateur', $id_utilisateur); 
-                            // $req->execute();
+                            
                             $stmt = $bdd->prepare("INSERT INTO reservations (titre, description, debut, fin, id_utilisateur) VALUE(?,?,?,?,?)");
                             $stmt->execute(array($titre, $description, $debut, $fin, $_SESSION['id']));
                             $msg = "<div class='alert alert-success'>Réservation reussi</div>";
@@ -88,9 +83,7 @@ if(isset($_POST['submit'])){
     <title>formulaire de reservation</title>
 </head>
 <body>
-<?php
-include('header.php');
-?> 
+ 
     <div class="container">
         <h1 class="text-center">Réserver pour le :<?php echo date('d/m/Y', strtotime($date)); ?> </h1><hr>
         <div class="row">

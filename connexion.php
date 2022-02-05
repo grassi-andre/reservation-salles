@@ -108,7 +108,7 @@ include ('header.php') ;
             <h1><?php 
 
                 if(isset($_SESSION['id'])){
-                    echo 'Connexion reussi' .' '.$login ;
+                    echo 'Connexion reussi' .' '.$_SESSION['login'] ;
                 }
                 else
                 if(!isset($_SESSION['id'])){

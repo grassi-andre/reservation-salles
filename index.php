@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include('header.php');
 
 ?>
 
@@ -17,7 +18,7 @@ session_start();
 </head>
 <body>
 <?php
-include('header.php');
+
 ?>         
 
 

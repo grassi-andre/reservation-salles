@@ -1,22 +1,8 @@
 <?php
-//id sql
+
 session_start();
 require 'bdd.php';
-// $serveur = "localhost";
-// $dbname = "reservationsalles";
-// $user = "root";
-// $pass = "root";
 
-
-// try{ 
-//     //Connexion BDD 
-//     $log = new PDO("mysql:host=$serveur;dbname=$dbname",$user,$pass);
-//     $log->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// }
-// // Erreur
-// catch(PDOException $e){
-//     echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
-// }
 
 
     @$login = $_POST['login'];
@@ -67,6 +53,7 @@ require 'bdd.php';
         //}
         if($stmt->execute()){
             $msg = "Bienvenue '$login' <br/>";
+            header("refresh:2;url=connexion.php");
         }
         else{
             $error = "Erreur: "; $e->getMessage();

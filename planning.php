@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+include('header.php');
+
 
 function build_calendar($month, $year){
 
@@ -18,13 +20,15 @@ function build_calendar($month, $year){
     $dayOfWeek = 1;
 
     $calendar = "<table class='table table-bordered'>";
+
     $calendar.= "<center><h2>$monthName $year</h2>";
 
     $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0,0,0, $month-1,1,$year))."&year=".date('Y', mktime(0,0,0, $month-1,1,$year))."'>Mois précédent</a>";
-    //       var_dump($calendrier);
+    
     $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Ce mois</a>";
-    //       var_dump($calendrier);
+   
     $calendar.="<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0,0,0, $month+1,1,$year))."&year=".date('Y', mktime(0,0,0, $month+1,1,$year))."'>Mois prochain</a></center></br>";
+    
     $calendar.="<tr>";
     
 
@@ -45,7 +49,13 @@ function build_calendar($month, $year){
 
 
     $currentDay = 1;
+
+    require 'bdd.php';
+
+   
+
     
+  
 
     $month = str_pad($month,2,0,STR_PAD_LEFT);
     
@@ -130,9 +140,7 @@ function build_calendar($month, $year){
     </style>
 </head>
 <body>
-<?php
-include('header.php')
-?> 
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
