@@ -53,31 +53,32 @@ foreach( $debut as $d){
 foreach($list_res as $res){
 
     ?>
-    
-    <div class="card text-center border border-secondary">
-  <div class="card-header">
-      <?=
-    $res["titre"]
-    ?>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><?= $res["debut"]." ".$res["fin"] ?> </h5>
-    <p class="card-text"><?= $res["description"]?></p>
-    
-  </div>
-  <div class="card-footer text-muted">
-  <?= $res["login"] ?>
-  </div>
-</div>
-
+    <div class="inforesa">
+    <fieldset>
+            <div class="card text-center border border-secondary">
+        <div class="card-header">
+            <?=
+            $res["titre"]
+            ?>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><?= $res["debut"]." ".$res["fin"] ?> </h5>
+            <p class="card-text"><?= $res["description"]?></p>
+            
+        </div>
+        <div class="card-footer text-muted">
+        <?= $res["login"] ?>
+        </div>
+        </div>
+    </fieldset>
+    </div>
 
 <?php
 }
-
-
 ?>
-    
-    <footer>
+
+
+<footer>
     <?php
     include('footer.html')
     ?>

@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 * {
-  font-family: Montserrat, sans-serif;
+  font-family: Libre Baskerville, sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: black;
@@ -13,12 +13,18 @@
   text-align: center;
 }
 
+
+/* IMAGE DE FOND INDEX */
+
 #imgfond1{
-  background-image: url(img/img2.jpeg);
+  background-image: url(img/img12.jpeg);
   background-size: cover;
   text-align: center;
   margin-top: 0%;
 }
+
+
+/* IMAGE DE FOND INSCRIPTION */
 
 #imgfond2{
   background-image: url(img/img2.jpeg);
@@ -27,40 +33,57 @@
   margin-top: 0%;
 }
 
+
+/* IMAGE DE FOND PLANNING */
+
 #imgfond3{
-  background-image: url(img/img2.jpeg);
+  background-image: url(img/img6.jpeg);
   background-size: cover;
   text-align: center;
   margin-top: 0%;
 }
+
+
+/* IMAGE DE FOND PROFIL */
 
 #imgfond4{
-  background-image: url(img/img2.jpeg);
+  background-image: url(img/img11.jpeg);
   background-size: cover;
   text-align: center;
   margin-top: 0%;
 }
+
+
+/* IMAGE DE FOND CONNEXION */
 
 #imgfond5{
-  background-image: url(img/img2.jpeg);
+  background-image: url(img/img8.jpeg);
   background-size: cover;
   text-align: center;
   margin-top: 0%;
 }
+
+
+/* IMAGE DE FOND RESAFORM */
 
 #imgfond6{
-  background-image: url(img/img2.jpeg);
+  background-image: url(img/img9.webp);
   background-size: cover;
   text-align: center;
   margin-top: 0%;
 }
 
+
+/* IMAGE DE FOND RESERVATION */
+
 #imgfond7{
-  background-image: url(img/img2.jpeg);
+  background-image: url(img/img10.png);
   background-size: cover;
   text-align: center;
   margin-top: 0%;
 }
+
+
 
 .profilform{
   display: flex;
@@ -73,7 +96,7 @@
 .h1a{
   text-align: center;
   font-weight: bolder;
-  color: rgb(31, 92, 74);;
+  color: black;
   
 }
 
@@ -83,7 +106,7 @@
 .footer {
   text-align: center;
   padding: 3px;
-  background-color: rgb(31, 92, 74);
+  background-color: #826AED;
   position:absolute;
   bottom:0;
   width: 100%;
@@ -97,7 +120,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(31, 92, 74);
+    background-color: #826AED;
   }
   
   li {
@@ -106,13 +129,13 @@ ul {
   
   li a {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
   
-  /* Pour changer la couleur de la navbar  */
+  /* Pour changer la couleur de la navbar quand on passe la souris  */
   li a:hover {
-    background-color: rgb(188, 214, 197);
+    background-color: #C879FF;
   }

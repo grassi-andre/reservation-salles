@@ -50,7 +50,7 @@ if(isset($_SESSION['id'])){
     
    <div class="profilform">
 
-      <fieldset>
+      
 
          <form action="" method="POST">
 
@@ -64,8 +64,7 @@ if(isset($_SESSION['id'])){
          
          </form>
 
-      </fieldset>
-  
+      
    </div>
 
    <footer>

@@ -29,6 +29,6 @@
                     
                 <?php }?>
             
-    <li style="float:right"><a class="active" href="livredor.php">À-propos</a></li>   
+    <!-- <li style="float:right"><a class="active" href="a-propos.php">À-propos</a></li>    -->
                 
 </ul>
