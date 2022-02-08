@@ -2,6 +2,7 @@
 session_start();
 
 
+
 $servname = 'localhost';
 $dbname = 'reservationsalles';  // log de connexion à la bdd 
 $user = 'root';
@@ -65,62 +66,63 @@ $mdp ='root';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>connexion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Connexion</title>
 </head>
-<body>
+<body id="imgfond5">
 <?php
-include ('header.php') ;
-?>       
-
- 
+    include ('header.php') ;
+?>      
 
 
-
-
-<div class="connexion">
+<div class="connexionform"> 
     <main class="main2 ">
 
         <div class="container2">
-    <form class="formulaire2" action="#" method="post">
-    <?php if(!isset($_SESSION['id'])) { ?>
-       
-        <h1>Connexion</h1> 
+            <form class="formulaire2" action="#" method="post">
+                <?php if(!isset($_SESSION['id'])) { ?>
+        
+                    <h1>Connexion</h1> 
 
-       <?php } ?>
+                <?php } ?>
     
         
-    <br />
-         <br />
-        <input type="text" name="login" placeholder="login" require>
-        <br>
-        <input type="password" name='password' placeholder="password" require>
-        <br />
+                <br />
+                    <br />
+                    <input type="text" name="login" placeholder="login" require>
+                    <br>
+                    <input type="password" name='password' placeholder="password" require>
+                    <br />
    
 
-        <input type="submit"   name ='submit'placeholder="submit">
+                <input type="submit"   name ='submit'placeholder="submit">
 
-    </form>
-            </div>
+            </form>
+        </div>
 
             
 
 
-            <h1><?php 
+                        <h1><?php 
 
-                if(isset($_SESSION['id'])){
-                    echo 'Connexion reussi' .' '.$_SESSION['login'] ;
-                }
-                else
-                if(!isset($_SESSION['id'])){
-                    echo 'Vous etes déconnecté';
-                }
-            
-            
-            ?></h1>
+                            if(isset($_SESSION['id'])){
+                                echo 'Connexion reussi' .' '.$_SESSION['login'] ;
+                            }
+                            else
+                            if(!isset($_SESSION['id'])){
+                                echo 'Vous etes déconnecté';
+                            }?>
+                        
+                        </h1>
 
-</main>
+    </main>
+
 
 </div>
-
+<footer>
+    <?php
+    include('footer.html')
+    ?>
+</footer>
 </body>
 </html>

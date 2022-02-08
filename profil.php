@@ -43,24 +43,36 @@ if(isset($_SESSION['id'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Profil</title>
 </head>
-<body>
-<?php
-include('header.php')
-?>
+<body id="imgfond4">
+   <?php
+      include('header.php')
+   ?>
     
-<div class="profil">
-<fieldset>
-<form action="" method="POST">
-<label for="login">Nouveau login</label><br>
-<input type="text" name="newlogin" placeolder="login" value="<?php echo @$_SESSION['login'] ?>" /><br /><br />
-<label for="password">Nouveau mot de passe</label><br>
-<input type="password" name="newmdp1" placeolder="password"> <br /><br />
-<label for="password">Confirmation nouveau mot de passe</label><br>
-<input type="password" name="newmdp2" placeolder="password2"> <br /><br />
-<input type="submit" value="Mettre à jour mon profil !" /> <br /><br />
-</form>
-</fieldset>
+   <div class="profilform">
 
+      <fieldset>
+
+         <form action="" method="POST">
+
+            <label for="login">Nouveau login</label><br>
+            <input type="text" name="newlogin" placeolder="login" value="<?php echo @$_SESSION['login'] ?>" /><br /><br />
+            <label for="password">Nouveau mot de passe</label><br>
+            <input type="password" name="newmdp1" placeolder="password"> <br /><br />
+            <label for="password">Confirmation nouveau mot de passe</label><br>
+            <input type="password" name="newmdp2" placeolder="password2"> <br /><br />    
+            <input type="submit" value="Mettre à jour mon profil !" /> <br /><br />
+         
+         </form>
+
+      </fieldset>
+  
+   </div>
+
+   <footer>
+    <?php
+    include('footer.html')
+    ?>
+</footer>
 </body>
-</div>
+
 </html>

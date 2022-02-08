@@ -16,21 +16,27 @@ include('header.php');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Accueil</title>
 </head>
-<body>
-<?php
+<body id="imgfond1" >
+     
 
-?>         
-
-
-
-
-
-
+        <div class="h1a">
+            <h1>
+                Résérvation salon de détente  
+            </h1>
+        </div>
 
 
 
 
 
- 
+
+
+
+
+<footer>
+    <?php
+    include('footer.html')
+    ?>
+</footer>
 </body>
 </html>

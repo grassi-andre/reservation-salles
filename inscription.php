@@ -2,6 +2,8 @@
 
 session_start();
 require 'bdd.php';
+include('header.php');
+
 
 
 
@@ -72,42 +74,33 @@ require 'bdd.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Inscription</title>
 </head>
-<body>
-<?php
-include('header.php')
-?>          
+<body id="imgfond2">
+         
+     <div class="inscription">
+        <form name="inscription" method="POST" action="" align="center">
+        
 
-<link rel="stylesheet" href="style.css">
-<div class="inscription">
-<form name="inscription" method="POST" action="" align="center">
- 
-<fieldset>
-    
-    <legend><h2>Inscription</h2></legend>
-    <?php if(isset($msg)){
-        echo $msg;
-    } ?>
-    Login<br>
-    <input type="text" name="login" value="" autocomplete="off" required><br>
-    Mot de passe<br>
-    <input type="password" name="password" value="" autocomplete="off" required><br>
-    Confirmation de mot de passe<br>
-    <input type="password" name="confirm" value="" autocomplete="off" required><br>
-    <br/><br/>
-    <input type="submit" name="envoi">
+            
+            <h2>Inscription</h2>
+            <?php if(isset($msg)){
+                echo $msg;
+            } ?>
+            Login<br>
+            <input type="text" name="login" value="" autocomplete="off" required><br>
+            Mot de passe<br>
+            <input type="password" name="password" value="" autocomplete="off" required><br>
+            Confirmation de mot de passe<br>
+            <input type="password" name="confirm" value="" autocomplete="off" required><br>
+            <br/><br/>
+            <input type="submit" name="envoi">
 
-  
-    
-</fieldset>
-</form>
-
-
-
-
-
-
-
-
+        </form>
+    </div>
+    <footer>
+    <?php
+    include('footer.html')
+    ?>
+</footer>
 </body>
 </html>
 
