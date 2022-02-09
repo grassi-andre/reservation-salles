@@ -27,10 +27,13 @@ $debut  = $insert->fetchAll();
 </head>
 <body id="imgfond7">
     
-    <h1>
-        Résérvation pour le jour : <?= $_GET['date']; ?>
 
-    </h1>
+    <div class="h1a">
+        <h1>
+            Résérvation pour le jour : <?= $_GET['date']; ?>
+
+        </h1>  
+    </div> 
    
 
 <?php
@@ -53,25 +56,23 @@ foreach( $debut as $d){
 foreach($list_res as $res){
 
     ?>
-    <div class="inforesa">
-    <fieldset>
-            <div class="card text-center border border-secondary">
-        <div class="card-header">
-            <?=
-            $res["titre"]
-            ?>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title"><?= $res["debut"]." ".$res["fin"] ?> </h5>
-            <p class="card-text"><?= $res["description"]?></p>
-            
-        </div>
-        <div class="card-footer text-muted">
-        <?= $res["login"] ?>
-        </div>
-        </div>
-    </fieldset>
-    </div>
+
+
+
+
+    <div class="card" style="width: 18rem;">
+  <div class="card-header">
+  <?=$res["login"]?>
+  </div>
+  <ul class="list-group list-group-flush">
+
+    <li class="list-group-item"><?=$res["titre"]?></li>
+
+    <li class="list-group-item"><?=$res["description"]?></li>
+
+    <li class="list-group-item"><?= $res["debut"]." ".$res["fin"] ?></li>
+  </ul>
+</div>
 
 <?php
 }

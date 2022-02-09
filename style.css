@@ -115,6 +115,8 @@
 
 /*  HEADER  */
 
+
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -133,9 +135,9 @@ ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
+  } */
   
   /* Pour changer la couleur de la navbar quand on passe la souris  */
-  li a:hover {
+ li a:hover {
     background-color: #C879FF;
   }
