@@ -3,32 +3,32 @@
 
 
 
-<ul id="ulheader" >
+    <ul class="header-ul">
 
-    <li><a href="index.php">Accueil</a></li>
-    
+        <li class="header-li"><a href="index.php">Accueil</a></li>
+        
 
-                <?php if(!isset($_SESSION['id'])) {?>
+                    <?php if(!isset($_SESSION['id'])) {?>
+
+                        
+                        <li class="header-li"><a href="connexion.php">Connexion</a></li>
+                        <li class="header-li"><a href="inscription.php">Inscription</a></li>
+                    
+                    
+                    
+
+                    <?php } 
 
                     
-                    <li><a href="connexion.php">Connexion</a></li>
-                    <li><a href="inscription.php">Inscription</a></li>
-                
-                
-                
-
-                <?php } 
-
-                
-                
-
-                 else{?>
-                    <li><a href="planning.php">Calendrier</a></li>
-                    <li><a href="profil.php">Modifier Mon profil</a></li>
-                    <li style="float:right"><a class="active" href="deconnexion.php">Deconnexion</a></li>
                     
-                <?php }?>
-            
 
+                    else{?>
+                        <li class="header-li"><a href="planning.php">Calendrier</a></li>
+                        <li class="header-li"><a href="profil.php">Modifier Mon profil</a></li>
+                        <li class="header-li" style="float:right"><a class="active" href="deconnexion.php">Deconnexion</a></li>
+                        
+                    <?php }?>
                 
-</ul>
+
+                    
+    </ul class="header-ul">

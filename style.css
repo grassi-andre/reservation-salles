@@ -3,7 +3,7 @@
   font-family: Libre Baskerville, sans-serif;
   font-weight: bold;
   font-size: 1em;
-  color: black;
+  color: violet;  
 }
 
 .connexionform{
@@ -113,11 +113,13 @@
 }
 
 
+
+
 /*  HEADER  */
 
 
 
-ul {
+.header-ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -125,11 +127,11 @@ ul {
     background-color: #826AED;
   }
   
-  li {
+  .header-li {
     float: left;
   }
   
-  li a {
+  .header-li a{
     display: block;
     color: black;
     text-align: center;
@@ -138,6 +140,6 @@ ul {
   } */
   
   /* Pour changer la couleur de la navbar quand on passe la souris  */
- li a:hover {
+  .header-li a:hover {
     background-color: #C879FF;
   }
